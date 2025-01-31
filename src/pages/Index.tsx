@@ -58,7 +58,7 @@ const Index = () => {
   };
 
   return (
-    <div className="flex h-screen bg-gradient-to-b from-movie-dark to-movie-main">
+    <div className="flex h-screen netflix-bg">
       <Sidebar 
         isOpen={isSidebarOpen} 
         onToggle={() => setIsSidebarOpen(!isSidebarOpen)}

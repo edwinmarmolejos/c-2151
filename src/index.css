@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  @apply bg-movie-dark text-movie-text;
+  @apply bg-[#141414] text-movie-text;
 }
 
 .sidebar-item {
@@ -15,5 +15,10 @@ body {
 }
 
 .chat-gradient {
-  background: linear-gradient(180deg, rgba(26,31,44,0) 0%, rgba(26,31,44,1) 100%);
+  background: linear-gradient(180deg, rgba(20,20,20,0) 0%, rgba(20,20,20,1) 100%);
+}
+
+.netflix-bg {
+  background-color: #141414;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8));
 }
