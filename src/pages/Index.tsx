@@ -58,57 +58,45 @@ const Index = () => {
   };
 
   return (
-    <div className="relative min-h-screen">
-      {/* Netflix-style background */}
-      <div 
-        className="fixed inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `url('/lovable-uploads/af7ecb95-b92d-4ce3-950f-a1d5d4fdefd9.png')`,
-          filter: 'brightness(0.3)',
-          zIndex: -1
-        }}
+    <div className="flex h-screen bg-gradient-to-b from-movie-dark to-movie-main">
+      <Sidebar 
+        isOpen={isSidebarOpen} 
+        onToggle={() => setIsSidebarOpen(!isSidebarOpen)}
+        onApiKeyChange={() => {}}
       />
       
-      <div className="relative z-10 flex min-h-screen">
-        <Sidebar 
-          isOpen={isSidebarOpen} 
-          onToggle={() => setIsSidebarOpen(!isSidebarOpen)}
-          onApiKeyChange={() => {}}
-        />
+      <main className={`flex-1 transition-all duration-300 ${isSidebarOpen ? 'ml-64' : 'ml-0'}`}>
+        <ChatHeader isSidebarOpen={isSidebarOpen} />
         
-        <main className={`flex-1 transition-all duration-300 ${isSidebarOpen ? 'ml-64' : 'ml-0'}`}>
-          <ChatHeader isSidebarOpen={isSidebarOpen} />
-          
-          <div className={`flex h-full flex-col ${messages.length === 0 ? 'items-center justify-center' : 'justify-between'} pt-[60px] pb-4`}>
-            {messages.length === 0 ? (
-              <div className="w-full max-w-3xl px-4 space-y-8">
-                <div className="text-center space-y-6">
-                  <h1 className="text-4xl font-bold bg-gradient-to-r from-movie-accent to-movie-secondary bg-clip-text text-transparent">
-                    Movie Recommendations
-                  </h1>
-                  <p className="text-movie-muted text-lg">
-                    Ask me about movies! I can help you find your next favorite film based on your preferences.
-                  </p>
-                  <div className="max-w-xl mx-auto">
-                    <ChatInput onSend={handleSendMessage} isLoading={isLoading} />
-                  </div>
-                </div>
-                <ActionButtons />
-              </div>
-            ) : (
-              <>
-                <MessageList messages={messages} />
-                <div className="w-full max-w-3xl mx-auto px-4 py-2">
+        <div className={`flex h-full flex-col ${messages.length === 0 ? 'items-center justify-center' : 'justify-between'} pt-[60px] pb-4`}>
+          {messages.length === 0 ? (
+            <div className="w-full max-w-3xl px-4 space-y-8">
+              <div className="text-center space-y-6">
+                <h1 className="text-4xl font-bold bg-gradient-to-r from-movie-accent to-movie-secondary bg-clip-text text-transparent">
+                  Movie Recommendations
+                </h1>
+                <p className="text-movie-muted text-lg">
+                  Ask me about movies! I can help you find your next favorite film based on your preferences.
+                </p>
+                <div className="max-w-xl mx-auto">
                   <ChatInput onSend={handleSendMessage} isLoading={isLoading} />
                 </div>
-                <div className="text-xs text-center text-movie-muted py-2">
-                  Movie recommendations are powered by AI. Ratings and reviews may vary.
-                </div>
-              </>
-            )}
-          </div>
-        </main>
-      </div>
+              </div>
+              <ActionButtons />
+            </div>
+          ) : (
+            <>
+              <MessageList messages={messages} />
+              <div className="w-full max-w-3xl mx-auto px-4 py-2">
+                <ChatInput onSend={handleSendMessage} isLoading={isLoading} />
+              </div>
+              <div className="text-xs text-center text-movie-muted py-2">
+                Movie recommendations are powered by AI. Ratings and reviews may vary.
+              </div>
+            </>
+          )}
+        </div>
+      </main>
     </div>
   );
 };
