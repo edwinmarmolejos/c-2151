@@ -3,13 +3,17 @@
 @tailwind utilities;
 
 body {
-  @apply bg-chatgpt-main text-white;
+  @apply bg-movie-dark text-movie-text;
 }
 
 .sidebar-item {
-  @apply flex items-center gap-3 rounded-md px-3 py-3 text-sm transition-colors duration-200 hover:bg-chatgpt-hover cursor-pointer;
+  @apply flex items-center gap-3 rounded-md px-3 py-3 text-sm transition-colors duration-200 hover:bg-movie-main cursor-pointer;
 }
 
 .action-button {
-  @apply flex items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-chatgpt-hover/50 border border-transparent hover:border-chatgpt-border transition-all duration-200;
+  @apply flex items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-movie-main/50 border border-transparent hover:border-movie-accent transition-all duration-200;
+}
+
+.chat-gradient {
+  background: linear-gradient(180deg, rgba(26,31,44,0) 0%, rgba(26,31,44,1) 100%);
 }

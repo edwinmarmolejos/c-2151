@@ -1,12 +1,12 @@
-import { ImagePlus, FileText, BarChart2, Code, HelpCircle } from "lucide-react";
+import { Film, Star, Clock, Compass, Heart } from "lucide-react";
 
 const ActionButtons = () => {
   const actions = [
-    { icon: <ImagePlus className="h-4 w-4 text-purple-400" />, label: "Create image" },
-    { icon: <FileText className="h-4 w-4 text-blue-400" />, label: "Summarize text" },
-    { icon: <BarChart2 className="h-4 w-4 text-green-400" />, label: "Analyze data" },
-    { icon: <Code className="h-4 w-4 text-yellow-400" />, label: "Code" },
-    { icon: <HelpCircle className="h-4 w-4 text-red-400" />, label: "Get advice" },
+    { icon: <Film className="h-4 w-4 text-purple-400" />, label: "Popular Movies" },
+    { icon: <Star className="h-4 w-4 text-yellow-400" />, label: "Top Rated" },
+    { icon: <Clock className="h-4 w-4 text-blue-400" />, label: "Latest Releases" },
+    { icon: <Compass className="h-4 w-4 text-green-400" />, label: "Discover" },
+    { icon: <Heart className="h-4 w-4 text-red-400" />, label: "Recommendations" },
   ];
 
   return (
@@ -14,7 +14,7 @@ const ActionButtons = () => {
       {actions.map((action) => (
         <button 
           key={action.label} 
-          className="relative flex h-[42px] items-center gap-1.5 rounded-full border border-[#383737] px-3 py-2 text-start text-[13px] shadow-xxs transition enabled:hover:bg-token-main-surface-secondary disabled:cursor-not-allowed xl:gap-2 xl:text-[14px]"
+          className="relative flex h-[42px] items-center gap-1.5 rounded-full border border-movie-accent/20 px-3 py-2 text-start text-[13px] shadow-lg transition enabled:hover:bg-movie-main disabled:cursor-not-allowed xl:gap-2 xl:text-[14px] hover:border-movie-accent"
         >
           {action.icon}
           {action.label}

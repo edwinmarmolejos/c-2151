@@ -24,12 +24,13 @@ export default {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
-        chatgpt: {
-          sidebar: "#171717",
-          main: "#212121",
-          secondary: "#444654",
-          hover: "#2A2B32",
-          border: "#4E4F60"
+        movie: {
+          dark: "#1A1F2C",
+          main: "#221F26",
+          accent: "#9b87f5",
+          secondary: "#8B5CF6",
+          text: "#FFFFFF",
+          muted: "#F1F0FB"
         },
         primary: {
           DEFAULT: "hsl(var(--primary))",

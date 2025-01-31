@@ -42,7 +42,7 @@ const Index = () => {
 
       const assistantMessage: Message = {
         role: 'assistant',
-        content: "I am a hardcoded response. The database connection has been removed for testing purposes. You can modify this response in the Index.tsx file."
+        content: "Based on your preferences, I recommend watching 'Inception' (2010). It's a mind-bending sci-fi thriller directed by Christopher Nolan, featuring stunning visuals and a complex plot about dreams within dreams. The film stars Leonardo DiCaprio and has won multiple Academy Awards. Would you like to know more about this movie or would you prefer a different recommendation?"
       };
 
       setMessages([...newMessages, assistantMessage]);
@@ -58,11 +58,11 @@ const Index = () => {
   };
 
   return (
-    <div className="flex h-screen">
+    <div className="flex h-screen bg-gradient-to-b from-movie-dark to-movie-main">
       <Sidebar 
         isOpen={isSidebarOpen} 
         onToggle={() => setIsSidebarOpen(!isSidebarOpen)}
-        onApiKeyChange={() => {}} // Empty function since we don't need API key anymore
+        onApiKeyChange={() => {}}
       />
       
       <main className={`flex-1 transition-all duration-300 ${isSidebarOpen ? 'ml-64' : 'ml-0'}`}>
@@ -70,10 +70,17 @@ const Index = () => {
         
         <div className={`flex h-full flex-col ${messages.length === 0 ? 'items-center justify-center' : 'justify-between'} pt-[60px] pb-4`}>
           {messages.length === 0 ? (
-            <div className="w-full max-w-3xl px-4 space-y-4">
-              <div>
-                <h1 className="mb-8 text-4xl font-semibold text-center">What can I help with?</h1>
-                <ChatInput onSend={handleSendMessage} isLoading={isLoading} />
+            <div className="w-full max-w-3xl px-4 space-y-8">
+              <div className="text-center space-y-6">
+                <h1 className="text-4xl font-bold bg-gradient-to-r from-movie-accent to-movie-secondary bg-clip-text text-transparent">
+                  Movie Recommendations
+                </h1>
+                <p className="text-movie-muted text-lg">
+                  Ask me about movies! I can help you find your next favorite film based on your preferences.
+                </p>
+                <div className="max-w-xl mx-auto">
+                  <ChatInput onSend={handleSendMessage} isLoading={isLoading} />
+                </div>
               </div>
               <ActionButtons />
             </div>
@@ -83,8 +90,8 @@ const Index = () => {
               <div className="w-full max-w-3xl mx-auto px-4 py-2">
                 <ChatInput onSend={handleSendMessage} isLoading={isLoading} />
               </div>
-              <div className="text-xs text-center text-gray-500 py-2">
-                ChatGPT can make mistakes. Check important info.
+              <div className="text-xs text-center text-movie-muted py-2">
+                Movie recommendations are powered by AI. Ratings and reviews may vary.
               </div>
             </>
           )}
